@@ -1,2 +1,17 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron text-center blog-banner">
+            <h1 class="comment-notes">Robin's Blog Posts</h1>
+        </div>
+    </div>
+</div><br>
+
+<% if current_user && current_user.admin? %>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <%= link_to "Create New Post", new_post_path, class: "btn btn-lg" %>
+        </div>
+    </div><br>
+<% end %>
+
+<%= render 'posts' %>

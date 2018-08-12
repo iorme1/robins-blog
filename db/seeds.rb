@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-member_user1 = User.create(email: "jake@fake.com", password: "123123")
-member_user2 = User.create(email: "sarah@fake.com", password: "123123")
-member_user3 = User.create(email: "timmy@fake.com", password: "123123")
-member_user4 = User.create(email: "john@fake.com", password: "123123")
-member_user5 = User.create(email: "kim@fake.com", password: "123123")
+
+#member_user1 = User.create(email: "jake@fake.com", password: "123123")
+#member_user2 = User.create(email: "sarah@fake.com", password: "123123")
+#member_user3 = User.create(email: "timmy@fake.com", password: "123123")
+#member_user4 = User.create(email: "john@fake.com", password: "123123")
+#member_user5 = User.create(email: "kim@fake.com", password: "123123")
 
 admin_user1 = User.create(email: "isaac@fake.com", password: "123123")
 admin_user1.admin!
@@ -34,7 +35,7 @@ blog5 = admin_user1.posts.create(
     title: 'Skin care stories',
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   )
-
+=begin
 comment1 = blog1.comments.new(body: "Hey I really liked this blog post, would love to chat with you about it later.")
 comment1.user = member_user1
 comment1.save!
@@ -54,3 +55,4 @@ comment4.save!
 comment5 = blog5.comments.new(body: "great story! love it!")
 comment5.user = member_user5
 comment5.save!
+=end
