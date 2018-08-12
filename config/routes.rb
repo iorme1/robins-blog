@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
        get :draft
      end
+     resources :comments, only: [:create, :destroy, :edit, :update]
    end
 
   devise_for :users
