@@ -1,0 +1,7 @@
+if ($(".comments<%=@post.id%>").text() === "Show comments") {
+  $(".comments-display<%= @post.id %>").html("<%= j render "comments/comment" %>")
+  $(".comments<%=@post.id%>").html("Hide comments")
+} else {
+  $(".comments-display<%= @post.id %>").html("")
+  $(".comments<%=@post.id%>").html("Show comments")
+}

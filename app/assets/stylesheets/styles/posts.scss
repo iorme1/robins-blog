@@ -31,10 +31,22 @@
 }
 
 
-.blog-banner {
+.comment-notes {
+   font-family: "Georgia";
+   color: black;
+   font-weight: bold;
+   text-shadow: 0.6px 1.1px 1.6px grey;
+   letter-spacing: 2px;
+}
 
+.blog-banner {
+  
 }
 
 .blog-post-banner-text {
   text-shadow: 1px 1px 2px grey;
+}
+
+.comment-section {
+  padding: 20px;
 }

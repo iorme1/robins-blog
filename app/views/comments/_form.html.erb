@@ -1,0 +1,10 @@
+<h3 class="font-italic col-xs-12 col-md-8"> Leave a comment </h3>
+<%= form_for [post,comment] do |f| %>
+  <div class="form-field col-xs-12 col-md-8">
+    <%= f.text_area :body, class: 'form-control' %>
+  </div><br>
+
+  <div class="form-field col-xs-12 col-md-8">
+    <%= f.submit "Add Comment", class: "btn btn-lg btn-info" %>
+  </div><br>
+<% end %>
