@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.friendly.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def authorize_user

@@ -1,2 +1,8 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<main class="container">
+  <div class="row">
+    <div class="post-show-blog">
+      <h1 class="title-font font-italic"><%= @post.title %></h1>
+      <p><%= raw @post.body %></p>
+    </div>
+  </div>
+</main>

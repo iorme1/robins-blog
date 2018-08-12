@@ -1,0 +1,30 @@
+<% if @drafts.empty? %>
+  <p class="top-marg comment-notes">No Drafts Here Yet</p>
+<% else %>
+  <% @drafts.each do |draft| %>
+    <div class="row">
+      <div class="col-md-12 preview-div">
+        <h3 class="title-font font-italic"><%= draft.title.upcase %></h3>
+        <p class="text-muted font-italic"><%= draft.created_at.strftime("%Y-%m-%d") + " By Robin Orme" %></p>
+        <div class="preview-blog-text">
+          <p><%= raw draft.body.truncate(200) %></p>
+        </div>
+        <% if current_user && current_user.admin? %>
+          <div class="read-post-btn-div">
+            <%= link_to post_path(draft), class: "btn btn-info" do %>
+              Preview Draft
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-12 text-center">
+        <% if current_user && current_user.admin? %>
+          <%= link_to "delete", post_path(draft), method: :delete, class: "btn btn-sm cool-btn",
+          data: { confirm: "Are you sure you want to delete this draft?" } %>
+          <%= link_to "edit draft", edit_post_path(draft), class: "btn btn-sm cool-btn" %>
+          <p></p><br/>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
