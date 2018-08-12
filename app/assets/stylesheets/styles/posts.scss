@@ -11,3 +11,30 @@
   margin-bottom: 30px;
   display: block;
 }
+
+.image-div {
+  height: 225px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  -moz-box-shadow: 1px 1px 2px 3px black;
+  -webkit-box-shadow: 1px 1px 2px 3px black;
+  box-shadow: 1px 1px 2px 3px black;
+}
+
+.cover-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  padding: 0px;
+}
+
+
+.blog-banner {
+
+}
+
+.blog-post-banner-text {
+  text-shadow: 1px 1px 2px grey;
+}

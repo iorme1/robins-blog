@@ -9,17 +9,19 @@
                  </div>
             </div>
             <% if post.cover? %>
-              <div class="col-md-4 image-div">
-                  <%= image_tag(post.cover.url, alt: "Cover Image for #{post.title}", class: "cover-image") %>
+              <div class="col-md-4">
+                  <div class="image-div">
+                      <%= image_tag(post.cover.url, alt: "Cover Image for #{post.title}", class: "cover-image") %>
+                  </div>
               </div>
             <% end %>
-        </div>
+        </div><br>
         <div class="row">
             <div class="col-md-6 text-center">
                 <%= link_to post_path(post), :class => "btn btn-info"  do %>
                     Read Post
                 <% end %>
-            </div>
+            </div><br>
             <div class="col-md-6 text-center">
                 <% if current_user && current_user.admin? %>
                     <%= link_to "delete post", post_path(post), method: :delete, class: "btn btn-info btn-sm",
