@@ -5,8 +5,10 @@
             <% if current_user && current_user.subscription? %>
                <%= link_to "Unsubscribe", subscribe_posts_path, class: "btn btn-lg btn-info" %>
             <% elsif current_user %>
-               <p class="comment-notes"> Subscribe if you'd like to receive email notifications of new posts!</p>
+               <p class="guest-text text-info"> Click subscribe for email notifications of new posts</p>
                <%= link_to "Subscribe", subscribe_posts_path, class: "btn btn-lg btn-info" %>
+            <% else %>
+                <p class="guest-text text-info">Sign up or log in to an existing account to enjoy full access</p>
             <% end %>
         </div>
     </div>
