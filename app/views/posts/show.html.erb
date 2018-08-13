@@ -1,7 +1,7 @@
 <main class="container">
   <div class="row">
     <div class="post-show-blog">
-      <h1 class="title-font font-italic"><%= @post.title %></h1>
+      <h1 class="title-font font-italic text-center"><%= @post.title %></h1>
       <p><%= raw @post.body %></p>
       <h2 class="comment-notes"><%= link_to "Show comments", post_path(@post), class: "comments#{@post.id} show-comments", remote: true %></h2>
       <p class="text-muted"><%= @post.comments.size %> comments</p>

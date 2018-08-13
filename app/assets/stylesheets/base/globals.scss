@@ -32,3 +32,39 @@ body {
   font-weight: bold;
   text-shadow: 0.8px 1.6px 2.1px white;
 }
+
+.navvy {
+  background-color: #001f3f;
+  margin-bottom: 40px;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color:  #001f3f;
+  background-color: white
+}
+
+.cust-nav-item {
+  border-bottom: 2px ridge white;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.nav-link-font {
+    color: white !important;
+}
+
+.navbar-font {
+  font-family: "Georgia" !important;
+  color: white !important;
+  font-size: 30px;
+  font-weight: bold !important;
+  text-shadow: 1px 2px 3px black;
+}
+
+.nav-link:hover {
+  color: #FFDC00 !important;
+}
+
+.navbar-brand:hover {
+  color: #FFDC00 !important;
+}

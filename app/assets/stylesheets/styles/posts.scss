@@ -30,17 +30,13 @@
   padding: 0px;
 }
 
-
 .comment-notes {
    font-family: "Georgia";
    color: black;
    font-weight: bold;
    text-shadow: 0.6px 1.1px 1.6px grey;
    letter-spacing: 2px;
-}
-
-.blog-banner {
-  
+   font-size: 18px;
 }
 
 .blog-post-banner-text {
@@ -49,4 +45,12 @@
 
 .comment-section {
   padding: 20px;
+}
+
+.title-font {
+  font-family: "Georgia";
+  font-size: 30px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-shadow: 0.8px 1.6px 2.1px grey;
 }
