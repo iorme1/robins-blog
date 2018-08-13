@@ -1,5 +1,7 @@
+require 'digest/sha2'
+
 class UserMailer < ApplicationMailer
-  default from: "robins.blogs@gmail.com"
+  default "Message-ID"=>"#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@robins-blogs.herokuapp.com"
 
   def post_notification(post)
     @post = post
