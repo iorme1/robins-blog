@@ -1,0 +1,5 @@
+<%= @comment.user.email %> commented on Robin's Blog post, <%= @post.title %>
+===
+<%= @comment.body %>
+===
+Join the conversation at:  <%= "https://robins-blogs.herokuapp.com/post/#{@post.id}" %>

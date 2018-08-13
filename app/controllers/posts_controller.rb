@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy, :edit, :update]
-  before_action :authorize_user, except: [:index, :show]
+  before_action :authorize_user, except: [:index, :show, :subscribe]
 
   def index
     @posts = Post.where(draft: [nil, false]).order("created_at DESC")
@@ -17,6 +17,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
+      if !@post.draft
+        UserMailer.post_notification(@post).deliver
+      end
       flash[:notice] = "Blog post successfully created."
       redirect_to @post
     else
@@ -32,6 +35,9 @@ class PostsController < ApplicationController
     @post.assign_attributes(post_params)
 
     if @post.save
+      if !@post.draft?
+        UserMailer.post_notification(@post).deliver
+      end
       flash[:notice] = "Blog post has been updated."
       redirect_to @post
     else
@@ -52,6 +58,27 @@ class PostsController < ApplicationController
 
   def draft
     @drafts = Post.where(draft: true)
+  end
+
+  def subscribe
+    if current_user.subscription?
+      current_user.subscription = false
+    else
+      current_user.subscription = true
+    end
+
+    if current_user.save
+      if current_user.subscription?
+        flash[:notice] = "You have successfully subscribed!"
+        redirect_to root_path
+      else
+        flash[:notice] = "You are now unsubscribed."
+        redirect_to root_path
+      end
+    else
+        flash[:warning] = "There was an error. Please try again."
+        redirect_to root_path
+    end
   end
 
   private

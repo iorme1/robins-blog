@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      UserMailer.comment_notification(@post, @comment).deliver
       flash[:notice] = "Comment saved successfully."
       redirect_to @post
     else

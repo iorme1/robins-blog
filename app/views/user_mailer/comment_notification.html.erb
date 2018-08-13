@@ -1,0 +1,10 @@
+<p>Join the conversation at  <%= link_to "#{@post.title}", @post %> </p>
+
+<div style="background-color: lightgrey; padding: 20px;">
+    <p style="color:teal;"><%= @comment.user.email %>
+      <span style="color: teal;">
+        <%= "- " + time_ago_in_words(@comment.created_at) + " ago" %>
+      </span>
+    </p>
+    <p><%= @comment.body %></p><br>
+</div><br>

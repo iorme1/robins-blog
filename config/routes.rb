@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
        get :draft
+       get :subscribe
      end
      resources :comments, only: [:create, :destroy, :edit, :update]
    end
