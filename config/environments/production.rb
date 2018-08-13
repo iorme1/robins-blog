@@ -64,6 +64,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "robins-blog_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.default_url_options = { host: 'https://robins-blogs.herokuapp.com' }
 
