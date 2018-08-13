@@ -1,24 +1,9 @@
-# README
+# Robin's Blog
+A blogging site for my dads travel's.
+Users can sign up, comment on posts, and subscribe to email notifications.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tech Details
+Built with Ruby on Rails. Implements ckeditor, carrier wave, mini_magick, AWS, and more.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Screenshots
+ Coming soon when my dad has posted his blogs about his upcoming trip to Europe.
