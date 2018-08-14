@@ -1,1 +1,1 @@
-$('.comments-display<%=@post.id%>').append("<%= escape_javascript(render(@comment)) %>")
+$('.comments-display<%=@post.id%>').html("").append("<%= escape_javascript(render @comment) %>");
