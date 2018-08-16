@@ -8,7 +8,8 @@
                <p class="guest-text text-info"> Click subscribe for email notifications of new posts</p>
                <%= link_to "Subscribe", subscribe_posts_path, class: "btn btn-lg btn-info" %>
             <% else %>
-                <p class="guest-text text-info">Sign up or log in to an existing account to enjoy full access</p>
+                <p class="guest-text text-info">Please Sign up or log in to an existing account to enjoy full access</p>
+                <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-lg btn-warning" %>
             <% end %>
         </div>
     </div>
