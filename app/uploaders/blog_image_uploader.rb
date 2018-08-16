@@ -20,7 +20,7 @@ class BlogImageUploader < CarrierWave::Uploader::Base
   def fix_exif_rotation
     manipulate! do |img|
       img.auto_orient!
-      img = yield(img) if block_given?
+      #img = yield(img) if block_given?
       img
     end
   end
