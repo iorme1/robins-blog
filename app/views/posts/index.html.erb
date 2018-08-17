@@ -1,6 +1,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="jumbotron text-center blog-banner">
+          <% if current_user && current_user.admin? %>
+            <p class="comment-notes"><%= link_to "Current Users", users_path %></p>
+          <% end %>
             <h1 class="font-italic title-font">Robin And Gloria's Blog Posts</h1>
             <% if current_user && current_user.subscription? %>
                <%= link_to "Unsubscribe", subscribe_posts_path, class: "btn btn-lg btn-info" %>

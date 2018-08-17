@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/index'
   mount Ckeditor::Engine => '/ckeditor'
+
   resources :posts do
     collection do
        get :draft
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
    end
 
   devise_for :users
+
+  resources :users, only: [:index]
 
   root 'posts#index'
 

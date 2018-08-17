@@ -1,0 +1,7 @@
+<h1 class="comment-notes">List of Users</h1>
+
+<div class="user-list">
+  <% @users.each do |user| %>
+     <p><%= user.email %></p>
+  <% end %>
+</div>
