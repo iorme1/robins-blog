@@ -1,0 +1,23 @@
+.users-list {
+  text-align: center;
+  font-size: 22px;
+}
+
+.users-list > h1 {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.user-details {
+  border: 1px solid black;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.subbed-text {
+  color: blue;
+}
+
+.unsubbed-text {
+  color: red;
+}
