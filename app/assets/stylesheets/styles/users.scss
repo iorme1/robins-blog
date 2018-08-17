@@ -1,17 +1,21 @@
-.users-list {
+.table-container > .comment-notes {
   text-align: center;
-  font-size: 18px;
-}
-
-.users-list > h1 {
   font-size: 30px;
   text-decoration: underline;
 }
 
-.user-details {
-  border: 1px solid black;
-  width: 50%;
+.table-container > table {
+  text-align: center;
   margin: 0 auto;
+  width: 700px;
+}
+.user-list-table, .user-list-table td, .user-list-table tr, .user-list-table th {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .subbed-text {
@@ -22,8 +26,21 @@
   color: red;
 }
 
-@media all and (max-width: 480px ) {
+@media all and (max-width: 768px ) {
+
+  .table-container > table {
+    width: 500px;
+  }
+}
+
+
+@media all and (max-width: 535px ) {
     .users-list {
       font-size: 15px;
+      color: pink;
+    }
+
+    .table-container > table {
+      width: 300px;
     }
 }
