@@ -8,10 +8,10 @@ class UserMailer < ApplicationMailer
     mail(subject: "Robin has created a new blog post")
   end
 
-  def comment_notification(post, comment)
-    return if User.where(subscription: true).pluck(:email).empty?
-    @post = post
-    @comment = comment
-    mail(subject: "#{@comment.user.email} commented on Robin's blog post #{@post.title}")
-  end
+  #def comment_notification(post, comment)
+    #return if User.where(subscription: true).pluck(:email).empty?
+    #@post = post
+    #@comment = comment
+    #mail(subject: "#{@comment.user.email} commented on Robin's blog post #{@post.title}")
+  #end
 end

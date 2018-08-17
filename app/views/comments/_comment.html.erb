@@ -1,6 +1,6 @@
 <% @post.comments.each do |comment| %>
     <div class="comment-section jumbotron col-xs-12 col-md-8">
-        <p class="text-info"><%= comment.user.email %>
+        <p class="text-info"><%= comment.user.email.split('@')[0] %>
           <span class="text-muted">
             <%= "- " + time_ago_in_words(comment.created_at) + " ago" %>
           </span>
