@@ -1,12 +1,14 @@
 <div class="users-list">
     <h1 class="comment-notes">List of Users</h1><br>
     <% @users.each do |user| %>
-        <div class="user-details">
-            <% if user.subscription? %>
-                <p><%= user.email %> | <span class="subbed-text"> Subscribed </span> </p>
-            <% else %>
-                <p><%= user.email %> | <span class="unsubbed-text"> Not Subscribed </span> </p>
-            <% end %>
+        <div class="row">
+          <div class="col-md-6 user-details">
+              <% if user.subscription? %>
+                  <p><%= user.email + " is " %>  <span class="subbed-text"> Subscribed </span></p>
+              <% else %>
+                  <p><%= user.email + " is " %> <span class="unsubbed-text"> Not Subscribed </span></p>            
+              <% end %>
+          </div>
         </div>
     <% end %>
 </div>

@@ -1,6 +1,6 @@
 .users-list {
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .users-list > h1 {
@@ -20,4 +20,10 @@
 
 .unsubbed-text {
   color: red;
+}
+
+@media all and (max-width: 480px ) {
+    .users-list {
+      font-size: 15px;
+    }
 }
