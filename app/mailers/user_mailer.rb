@@ -1,17 +1,15 @@
 class UserMailer < ApplicationMailer
-  default to: -> { User.where(subscription: true).pluck(:email) },
-          from: 'robins-blog.herokuapp.com'
+  default from: 'robins-blog.herokuapp.com'
 
-  def post_notification(post)
+  def post_notification(recipient, post)
     return if User.where(subscription: true).pluck(:email).empty?
     @post = post
-    mail(subject: "Robin has created a new blog post")
+    mail(to: recipient, subject: "Robin has created a new blog post")
   end
 
-  #def comment_notification(post, comment)
-    #return if User.where(subscription: true).pluck(:email).empty?
-    #@post = post
-    #@comment = comment
-    #mail(subject: "#{@comment.user.email} commented on Robin's blog post #{@post.title}")
-  #end
+  def comment_notification(post, comment)
+    @post = post
+    @comment = comment
+    mail(to: "jrorme1@sbcglobal.net", subject: "#{@comment.user.email} commented on Robin's blog post #{@post.title}")
+  end
 end

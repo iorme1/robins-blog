@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      #UserMailer.comment_notification(@post, @comment).deliver
+      UserMailer.comment_notification(@post, @comment).deliver
       flash[:notice] = "Comment saved successfully."
     else
       flash[:alert] = "Comment failed to save. Please try again."

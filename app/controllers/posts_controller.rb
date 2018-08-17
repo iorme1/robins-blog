@@ -15,10 +15,13 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    @recipients = User.where(subscription: true).pluck(:email)
 
     if @post.save
       if !@post.draft
-        UserMailer.post_notification(@post).deliver
+          @recipients.each do |recipient|
+            UserMailer.post_notification(recipient, @post).deliver
+          end
       end
       flash[:notice] = "Blog post successfully created."
       redirect_to @post
