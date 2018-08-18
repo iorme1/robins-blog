@@ -36,10 +36,13 @@ class PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
+    @recipients = User.where(subscription: true).pluck(:email)
 
     if @post.save
       if !@post.draft?
-        UserMailer.post_notification(@post).deliver
+        @recipients.each do |recipient|
+          UserMailer.post_notification(recipient, @post).deliver
+        end
       end
       flash[:notice] = "Blog post has been updated."
       redirect_to @post

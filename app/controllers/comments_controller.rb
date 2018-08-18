@@ -6,9 +6,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
+    @recipients = ["ggorme@gmail.com", "jrorme1@sbcglobal.net"]
 
     if @comment.save
-      UserMailer.comment_notification(@post, @comment).deliver
+      @recipients.each do |recipient|
+        UserMailer.comment_notification(@post, @comment, recipient).deliver
+      end
+
       flash[:notice] = "Comment saved successfully."
     else
       flash[:alert] = "Comment failed to save. Please try again."
