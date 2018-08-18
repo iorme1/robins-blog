@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     if @post.save
       if !@post.draft
           @recipients.each do |recipient|
-            UserMailer.post_notification(recipient, @post).deliver
+            UserMailer.post_notification(recipient, @post).deliver_later
           end
       end
       flash[:notice] = "Blog post successfully created."
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     if @post.save
       if !@post.draft?
         @recipients.each do |recipient|
-          UserMailer.post_notification(recipient, @post).deliver
+          UserMailer.post_notification(recipient, @post).deliver_later
         end
       end
       flash[:notice] = "Blog post has been updated."
@@ -92,7 +92,7 @@ class PostsController < ApplicationController
     @like = Like.where(likeable: @post, user_id: current_user)
     unless @like.size >= 1
       Like.create(likeable: @post, user: current_user, like: params[:like])
-      UserMailer.like_post_notification(current_user.email, @post).deliver
+      UserMailer.like_post_notification(current_user.email, @post).deliver_later
     end
   end
 

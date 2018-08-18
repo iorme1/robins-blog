@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       @recipients.each do |recipient|
-        UserMailer.comment_notification(@post, @comment, recipient).deliver
+        UserMailer.comment_notification(@post, @comment, recipient).deliver_later
       end
 
       flash[:notice] = "Comment saved successfully."
@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
     unless @like.size >= 1
       Like.create(likeable: @comment,  user: current_user, like: params[:like])
       @recipient = User.where(subscription: true).where(id: @comment.user_id).pluck(:email)
-      UserMailer.like_comment_notification(@recipient, current_user.email.split('@')[0], @post, @comment).deliver
+      UserMailer.like_comment_notification(@recipient, current_user.email.split('@')[0], @post, @comment).deliver_later
     end
   end
 
