@@ -24,6 +24,6 @@ class UserMailer < ApplicationMailer
   def like_post_notification(liker, post)
     @liker = liker
     @post = post
-    mail(to: "isorme1@gmail.com", subject: "#{@liker} liked your post!" )
+    mail(to: "jrorme1@sbcglobal.net", subject: "#{@liker} liked your post!" )
   end
 end
