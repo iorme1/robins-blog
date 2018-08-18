@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authorize_user, except: [:index, :like]
-  before_action :set_post, only: [:create, :destroy]
+  before_action :set_post, only: [:create, :destroy, :like]
   before_action :set_comment, only: [:edit, :update, :like]
 
   def create
@@ -46,8 +46,11 @@ class CommentsController < ApplicationController
 
   def like
     @like = Like.where(likeable: @comment, user_id: current_user)
+
     unless @like.size >= 1
-      Like.create!(likeable: @comment,  user: current_user, like: params[:like])
+      Like.create(likeable: @comment,  user: current_user, like: params[:like])
+      @recipient = User.where(subscription: true).where(id: @comment.user_id).pluck(:email)
+      UserMailer.like_comment_notification(@recipient, current_user.email.split('@')[0], @post, @comment).deliver
     end
   end
 

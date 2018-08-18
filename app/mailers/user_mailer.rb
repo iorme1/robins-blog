@@ -12,4 +12,18 @@ class UserMailer < ApplicationMailer
     @comment = comment
     mail(to: "jrorme1@sbcglobal.net", subject: "#{@comment.user.email} commented on Robin's blog post #{@post.title}")
   end
+
+  def like_comment_notification(recipient, liker, post, comment)
+    @recipient = recipient
+    @liker = liker
+    @post = post
+    @comment = comment
+    mail(to: @recipient, subject: "#{@liker} liked your comment!")
+  end
+
+  def like_post_notification(liker, post)
+    @liker = liker
+    @post = post
+    mail(to: "isorme1@gmail.com", subject: "#{@liker} liked your post!" )
+  end
 end

@@ -89,6 +89,7 @@ class PostsController < ApplicationController
     @like = Like.where(likeable: @post, user_id: current_user)
     unless @like.size >= 1
       Like.create(likeable: @post, user: current_user, like: params[:like])
+      UserMailer.like_post_notification(current_user.email, @post).deliver
     end
   end
 
