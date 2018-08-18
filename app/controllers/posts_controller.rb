@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :destroy, :edit, :update]
-  before_action :authorize_user, except: [:index, :show, :subscribe]
+  before_action :set_post, only: [:show, :destroy, :edit, :update, :like]
+  before_action :authorize_user, except: [:index, :show, :subscribe, :like]
 
   def index
     @posts = Post.where(draft: [nil, false]).order("created_at DESC")
@@ -81,6 +81,14 @@ class PostsController < ApplicationController
     else
         flash[:warning] = "There was an error. Please try again."
         redirect_to root_path
+    end
+  end
+
+
+  def like
+    @like = Like.where(likeable: @post, user_id: current_user)
+    unless @like.size >= 1
+      Like.create(likeable: @post, user: current_user, like: params[:like])
     end
   end
 

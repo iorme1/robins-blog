@@ -7,7 +7,16 @@ Rails.application.routes.draw do
        get :draft
        get :subscribe
      end
-     resources :comments, only: [:create, :destroy, :edit, :update]
+
+     member do
+       post 'like'
+     end
+
+     resources :comments, only: [:create, :destroy, :edit, :update] do
+       member do
+         post 'like'
+       end
+     end
    end
 
   devise_for :users

@@ -3,7 +3,15 @@
     <div class="post-show-blog">
       <h1 class="title-font font-italic text-center"><%= @post.title %></h1>
       <p><%= raw @post.body %></p>
-      <h2 class="comment-notes"><%= link_to "Show comments", post_path(@post), class: "comments#{@post.id} show-comments", remote: true %></h2>
+      <% if current_user %>
+        <div class="like-post-container text-right">
+            <%= link_to like_post_path(@post, like: true), method: 'post', remote: true do %>
+                <span class="like-text-post">Like Post</span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <span id="post_<%= @post.id %>_likes"><%= @post.likes.size %></span>
+            <% end %>
+        </div>
+      <% end %>
+      <h2 class="comment-notes"><%= link_to "View comments", post_path(@post), class: "comments#{@post.id} show-comments", remote: true %></h2>
       <p class="text-muted"><%= @post.comments.size %> comments</p>
       <div class="comments-display<%=@post.id%>"></div>
     </div>

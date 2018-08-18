@@ -1,0 +1,5 @@
+$("#comment_<%= @comment.id %>_likes").html("<%= @comment.likes.size %>");
+
+// hardcoding an id for @comment.id works with ajax perfectly...so
+// clearly the comment that is supposed to be getting liked doesnt
+// get the right ID.

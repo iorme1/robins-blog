@@ -12,6 +12,7 @@ group :development do
 end
 
 
+gem 'font-awesome-rails'
 gem 'fog-aws'
 gem 'figaro'
 gem 'ckeditor'
@@ -19,7 +20,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.1'
-gem "devise"
+gem 'devise'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

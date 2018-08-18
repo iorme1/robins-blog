@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :authorize_user, except: [:index]
+  before_action :authorize_user, except: [:index, :like]
   before_action :set_post, only: [:create, :destroy]
-  before_action :set_comment, only: [:edit, :update,]
+  before_action :set_comment, only: [:edit, :update, :like]
 
   def create
     @comment = @post.comments.new(comment_params)
@@ -44,6 +44,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def like
+    @like = Like.where(likeable: @comment, user_id: current_user)
+    unless @like.size >= 1
+      Like.create!(likeable: @comment,  user: current_user, like: params[:like])
+    end
+  end
 
   private
 

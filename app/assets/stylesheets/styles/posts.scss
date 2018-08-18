@@ -62,3 +62,34 @@
   font-weight: bold;
   text-shadow: 0.8px 1.6px 2.1px grey;
 }
+
+
+.like-text-comment {
+   margin-right: 5px;
+   color: blue;
+   font-family: "Georgia";
+   color: blue;
+   font-weight: bold;
+}
+
+.like-text-post {
+  margin-right: 5px;
+  font-family: "Georgia";
+  color: blue;
+  font-weight: bold;
+  text-shadow: 0.4px 0.8px 1px grey;
+  font-size: 18px;
+}
+
+.like-container:hover {
+  cursor: pointer;
+}
+
+.like-post-container {
+  font-size: 20px;
+}
+
+.like-post-container:hover {
+  cursor: pointer;
+
+}
