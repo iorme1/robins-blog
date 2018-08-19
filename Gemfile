@@ -12,6 +12,7 @@ group :development do
 end
 
 
+gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'font-awesome-rails'
 gem 'fog-aws'
 gem 'figaro'

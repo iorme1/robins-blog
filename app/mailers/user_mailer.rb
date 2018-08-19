@@ -3,6 +3,7 @@ class UserMailer < ApplicationMailer
 
   def post_notification(recipient, post)
     @post = post
+
     mail(to: recipient, subject: "Robin has created a new blog post")
   end
 
@@ -10,6 +11,7 @@ class UserMailer < ApplicationMailer
     @post = post
     @comment = comment
     @recipient = recipient
+
     mail(to: @recipient, subject: "#{@comment.user.email} commented on Robin's blog post #{@post.title}")
   end
 
@@ -18,12 +20,17 @@ class UserMailer < ApplicationMailer
     @liker = liker
     @post = post
     @comment = comment
+
     mail(to: @recipient, subject: "#{@liker} liked your comment!")
   end
 
   def like_post_notification(liker, post)
     @liker = liker
     @post = post
-    mail(to: "jrorme1@sbcglobal.net", subject: "#{@liker} liked your post!" )
+      if Rails.env.production?
+        mail(to: "jrorme1@sbcglobal.net", subject: "#{@liker} liked your post!" )
+      else
+        mail(to: "isorme1@gmail.com", subject: "#{@liker} liked your post!" )
+      end
   end
 end

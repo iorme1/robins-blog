@@ -6,12 +6,14 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
-    @recipients = ["ggorme@gmail.com", "jrorme1@sbcglobal.net"]
 
     if @comment.save
-      @recipients.each do |recipient|
-        UserMailer.comment_notification(@post, @comment, recipient).deliver_later
-      end
+      if Rails.env.production?
+        @recipients = ["ggorme@gmail.com", "jrorme1@sbcglobal.net"]
+        @recipients.each do |recipient|
+          UserMailer.comment_notification(@post, @comment, recipient).deliver_later
+        end
+      end 
 
       flash[:notice] = "Comment saved successfully."
     else
