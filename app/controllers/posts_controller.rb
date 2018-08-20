@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :destroy, :edit, :update, :like]
-  before_action :authorize_user, except: [:index, :show, :subscribe, :like]
+  before_action :set_post, only: [:show, :destroy, :edit, :update, :like, :replies, :comments]
+  before_action :authorize_user, except: [:index, :show, :subscribe, :like, :comments]
 
   def index
     @posts = Post.where(draft: [nil, false]).order("created_at DESC")
   end
 
   def show
+
   end
 
   def new
@@ -87,14 +88,25 @@ class PostsController < ApplicationController
     end
   end
 
+  def comments
+  end
 
   def like
     @like = Like.where(likeable: @post, user_id: current_user)
+
     unless @like.size >= 1
       Like.create(likeable: @post, user: current_user, like: params[:like])
-      UserMailer.like_post_notification(current_user.email, @post).deliver_later
+      if Rails.env.production?
+        @recipients = ["ggorme@gmail.com", "jrorme1@sbcglobal.net"]
+        @recipients.each do |recipient|
+          UserMailer.like_post_notification(current_user.email, @post, recipient).deliver_later
+        end
+      else
+        UserMailer.like_post_notification(current_user.email, @post, "isorme1@gmail.com").deliver_later
+      end
     end
   end
+
 
   private
 
@@ -107,7 +119,7 @@ class PostsController < ApplicationController
   end
 
   def authorize_user
-    unless current_user.admin?
+    unless current_user && current_user.admin?
       flash[:alert] = "You must be an admin to do that."
       redirect_to root_path
     end

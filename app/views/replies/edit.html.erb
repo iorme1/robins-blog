@@ -1,0 +1,13 @@
+<div class="container">
+  <h3 class="font-italic comment-notes top-marg"> Edit your reply to this post </h3><br>
+
+  <%= form_for [@post,@comment,@reply] do |f| %>
+    <div class="form-field">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div><br>
+
+    <div class="form-field">
+      <%= f.submit "Update Reply", class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<h1 class="comment-notes">Reply to:</h1><br>
+<div class="comment-section jumbotron col-xs-12 col-md-12 col-lg-8">
+    <p class="text-info"><%= @comment.user.email.split('@')[0] %>
+      <span class="text-muted">
+        <%= "- " + time_ago_in_words(@comment.created_at) + " ago" %>
+      </span>
+    </p>
+    <p><%= @comment.body %></p>
+</div>
+
+<%= render 'form' %>

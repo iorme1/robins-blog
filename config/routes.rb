@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :posts do
@@ -10,14 +9,28 @@ Rails.application.routes.draw do
 
      member do
        post 'like'
+       get 'comments'
      end
 
      resources :comments, only: [:create, :destroy, :edit, :update] do
        member do
          post 'like'
+         get 'replies'
        end
      end
+
+     resources :comments, only: [:show] do
+       resources :replies, only: [:new, :create, :edit, :update] do
+         member do
+           post 'like'
+         end
+       end
+     end
+
+     resources :replies, only: [:destroy]
    end
+
+
 
   devise_for :users
 

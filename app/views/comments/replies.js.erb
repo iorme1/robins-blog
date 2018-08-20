@@ -1,0 +1,7 @@
+if ($(".replies<%=@comment.id%>").text() === "View replies") {
+  $(".replies-display<%= @comment.id %>").html("<%= j render 'replies/reply' %>");
+  $(".replies<%=@comment.id%>").html("Hide replies")
+} else {
+  $(".replies-display<%= @comment.id %>").html("")
+  $(".replies<%=@comment.id%>").html("View replies")
+}

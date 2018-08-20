@@ -11,7 +11,7 @@
             <% end %>
         </div><br>
       <% end %>
-      <h2 class="comment-notes"><%= link_to "View comments", post_path(@post), class: "comments#{@post.id} show-comments", remote: true %></h2>
+      <h2 class="comment-notes"><%= link_to "View comments", comments_post_path(@post), class: "comments#{@post.id} show-comments", remote: true %></h2>
       <p class="text-muted"><%= @post.comments.size %> comments</p>
       <div class="comments-display<%=@post.id%>"></div>
     </div>

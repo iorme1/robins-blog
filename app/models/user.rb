@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :replies, dependent: :destroy
 
   after_save :subscribe_to_blog
   before_save  { self.role ||= :member }

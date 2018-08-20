@@ -24,13 +24,10 @@ class UserMailer < ApplicationMailer
     mail(to: @recipient, subject: "#{@liker} liked your comment!")
   end
 
-  def like_post_notification(liker, post)
+  def like_post_notification(liker, post, recipient)
     @liker = liker
     @post = post
-      if Rails.env.production?
-        mail(to: "jrorme1@sbcglobal.net", subject: "#{@liker} liked your post!" )
-      else
-        mail(to: "isorme1@gmail.com", subject: "#{@liker} liked your post!" )
-      end
+
+    mail(to: recipient, subject: "#{@liker} liked your post!" )
   end
 end

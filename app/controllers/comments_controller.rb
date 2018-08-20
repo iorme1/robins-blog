@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :authorize_user, except: [:index, :like]
-  before_action :set_post, only: [:create, :destroy, :like]
-  before_action :set_comment, only: [:edit, :update, :like]
+  before_action :authorize_user, except: [:index, :like, :show, :replies]
+  before_action :set_post, only: [:create, :destroy, :like, :replies]
+  before_action :set_comment, only: [:edit, :update, :like, :show, :replies]
+
+  def show
+
+  end
 
   def create
     @comment = @post.comments.new(comment_params)
@@ -13,7 +17,7 @@ class CommentsController < ApplicationController
         @recipients.each do |recipient|
           UserMailer.comment_notification(@post, @comment, recipient).deliver_later
         end
-      end 
+      end
 
       flash[:notice] = "Comment saved successfully."
     else
@@ -50,6 +54,9 @@ class CommentsController < ApplicationController
     end
   end
 
+  def replies
+  end
+
   def like
     @like = Like.where(likeable: @comment, user_id: current_user)
 
@@ -75,8 +82,8 @@ class CommentsController < ApplicationController
   end
 
   def authorize_user
-    unless current_user.member? || current_user.admin?
-      flash[:alert] = "You must be atleast member to comment. Sign up for free now!"
+    unless current_user
+      flash[:alert] = "You must be atleast a member to comment. Sign up for free now!"
       redirect_to root_path
     end
   end
