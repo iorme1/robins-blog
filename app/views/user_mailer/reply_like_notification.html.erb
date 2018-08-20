@@ -1,0 +1,12 @@
+<p><%= "#{@liker} Liked the reply you wrote!" %></p>
+
+<div style="background-color: lightgrey; padding: 20px;">
+    <p style="color:teal;"><%= @reply.user.email.split('@')[0] %>
+      <span style="color: teal;">
+        <%= "- " + time_ago_in_words(@reply.created_at) + " ago" %>
+      </span>
+    </p>
+    <p><%= @reply.body %></p><br>
+</div><br>
+
+<p><%= link_to "#{@post.title}", @post %> </p>

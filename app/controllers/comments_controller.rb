@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       if Rails.env.production?
-        @recipients = ["ggorme@gmail.com", "jrorme1@sbcglobal.net"]
+        @recipients = User.where(role: "admin").pluck(:email)
         @recipients.each do |recipient|
           UserMailer.comment_notification(@post, @comment, recipient).deliver_later
         end

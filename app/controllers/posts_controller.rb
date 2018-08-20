@@ -97,7 +97,7 @@ class PostsController < ApplicationController
     unless @like.size >= 1
       Like.create(likeable: @post, user: current_user, like: params[:like])
       if Rails.env.production?
-        @recipients = ["ggorme@gmail.com", "jrorme1@sbcglobal.net"]
+        @recipients = User.where(role: "admin").pluck(:email)
         @recipients.each do |recipient|
           UserMailer.like_post_notification(current_user.email, @post, recipient).deliver_later
         end

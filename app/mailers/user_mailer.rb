@@ -30,4 +30,22 @@ class UserMailer < ApplicationMailer
 
     mail(to: recipient, subject: "#{@liker} liked your post!" )
   end
+
+  def reply_notification(recipient, replier, reply, post)
+    @recipient = recipient
+    @replier = replier
+    @reply = reply
+    @post = post
+
+    mail(to: recipient, subject: "#{replier.split('@')[0]} replied to your comment!" )
+  end
+
+  def reply_like_notification(recipient, liker, reply, post)
+    @recipient = recipient
+    @liker = liker
+    @reply = reply
+    @post = post
+
+    mail(to: recipient, subject: "#{liker} liked your reply!" )
+  end
 end
