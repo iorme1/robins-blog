@@ -2,6 +2,7 @@
   <h3 class="font-italic comment-notes top-marg"> Edit your comment for this post </h3><br>
 
   <%= form_for [@post,@comment] do |f| %>
+    <%= f.invisible_captcha :subtitle %>
     <div class="form-field">
       <%= f.text_area :body, class: 'form-control' %>
     </div><br>

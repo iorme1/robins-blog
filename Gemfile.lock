@@ -109,6 +109,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
+    invisible_captcha (0.10.0)
+      rails (>= 3.2.0)
     ipaddress (0.8.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -227,6 +229,7 @@ DEPENDENCIES
   figaro
   fog-aws
   font-awesome-rails
+  invisible_captcha (~> 0.10.0)
   jbuilder (~> 2.5)
   jquery-rails
   mini_magick

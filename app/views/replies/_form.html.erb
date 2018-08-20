@@ -1,4 +1,7 @@
 <%= form_for [@post,@comment,@reply] do |f| %>
+
+  <%= f.invisible_captcha :subtitle %>
+
   <div class="form-field col-xs-12 col-md-8">
     <%= f.text_area :body, class: 'form-control' %>
   </div><br>

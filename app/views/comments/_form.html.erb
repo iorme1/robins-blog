@@ -1,5 +1,9 @@
 <h3 class="font-italic comment-notes col-xs-12 col-md-8"> Leave a comment </h3>
+
 <%= form_for [post,comment], remote: true, :html => { :id => 'comment_form' } do |f| %>
+
+  <%= f.invisible_captcha :subtitle %>
+
   <div class="form-field col-xs-12 col-md-8">
     <%= f.text_area :body, class: 'form-control' %>
   </div><br>

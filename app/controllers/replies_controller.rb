@@ -1,4 +1,5 @@
 class RepliesController < ApplicationController
+  invisible_captcha only: [:create, :update], honeypot: :subtitle, on_spam: :spam_detected
   before_action :authorize_user
   before_action :set_post, only: [:new, :create, :destroy, :like, :edit, :update, :like]
   before_action :set_comment, only: [:new, :show, :create, :edit, :update]
@@ -80,6 +81,10 @@ class RepliesController < ApplicationController
 
   def set_comment
     @comment = Comment.find(params[:comment_id])
+  end
+
+  def spam_detected
+    redirect_to root_path
   end
 
   def authorize_user

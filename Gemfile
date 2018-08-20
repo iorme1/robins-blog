@@ -11,7 +11,7 @@ group :development do
   gem 'sqlite3'
 end
 
-
+gem 'invisible_captcha', '~> 0.10.0'
 gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'font-awesome-rails'
 gem 'fog-aws'
