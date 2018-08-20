@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :replies, dependent: :destroy
 
-  after_save :subscribe_to_blog
+  after_create :subscribe_to_blog
   before_save  { self.role ||= :member }
 
   enum role: [:member, :admin]

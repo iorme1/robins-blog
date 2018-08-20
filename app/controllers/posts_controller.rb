@@ -79,7 +79,7 @@ class PostsController < ApplicationController
         flash[:notice] = "You have successfully subscribed!"
         redirect_to root_path
       else
-        flash[:notice] = "You are now unsubscribed."
+        flash[:alert] = "You are now unsubscribed."
         redirect_to root_path
       end
     else

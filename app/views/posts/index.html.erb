@@ -2,16 +2,16 @@
     <div class="col-md-12">
         <div class="jumbotron text-center blog-banner">
           <% if current_user && current_user.admin? %>
-            <p class="comment-notes"><%= link_to "Current Users", users_path %></p>
+            <p class="comment-notes"><%= link_to "Current Users", users_path, class: "current-users-txt" %></p>
           <% end %>
             <h1 class="font-italic title-font banner-title-text">Robin And Gloria's Blog Posts</h1>
             <% if current_user && current_user.subscription? %>
-               <%= link_to "Unsubscribe", subscribe_posts_path, class: "btn btn-lg btn-info" %>
+               <%= link_to "Unsubscribe", subscribe_posts_path, class: "btn btn-lg btn-warning" %>
             <% elsif current_user %>
                <p class="guest-text text-info"> Click subscribe for email notifications of new posts</p>
-               <%= link_to "Subscribe", subscribe_posts_path, class: "btn btn-lg btn-info" %>
+               <%= link_to "Subscribe", subscribe_posts_path, class: "btn btn-lg btn-warning" %>
             <% else %>
-                <p class="guest-text text-info">Please Sign up or log in to an existing account to enjoy full access</p>
+                <p class="guest-text text-info">Sign up or log in to an existing account to enjoy full access</p>
                 <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-lg btn-warning" %>
             <% end %>
         </div>
