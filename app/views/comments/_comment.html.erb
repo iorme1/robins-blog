@@ -1,4 +1,4 @@
-<% @post.comments.each do |comment| %>
+<% @post.comments.order("created_at DESC").each do |comment| %>
     <div class="comment-section comment-container jumbotron col-xs-12 col-md-12 col-lg-8">
         <p class="text-info"><%= comment.user.email.split('@')[0] %>
             <span class="text-muted">
