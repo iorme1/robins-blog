@@ -21,10 +21,10 @@ class RepliesController < ApplicationController
         @recipient = @comment.user.email
         UserMailer.reply_notification(@recipient, current_user.email, @reply, @post).deliver_later
       end
-      flash[:notice] = "Reply saved successfully."
+      flash[:notice] = "Your reply has been added."
       redirect_to @post
     else
-      flash[:alert] = "Reply failed to save. Please try again."
+      flash[:alert] = "Your reply failed to save. Please try again."
       redirect_to @post
     end
   end
@@ -36,19 +36,19 @@ class RepliesController < ApplicationController
     @reply.assign_attributes(reply_params)
 
     if @reply.save
-      flash[:notice] = "Comment has been updated."
+      flash[:notice] = "Your reply has been updated."
       redirect_to @post
     else
-      flash.now[:alert] = "There was an error updating that comment. Please try again."
+      flash.now[:alert] = "There was an error updating your reply. Please try again."
       render :edit
     end
   end
 
   def destroy
     if @reply.destroy
-      flash[:notice] = "Your reply was deleted."
+      flash[:notice] = "Your reply was removed."
     else
-      flash[:alert] = "Replay was not deleted. Please try again."
+      flash[:alert] = "Your reply was not removed. Please try again."
     end
     redirect_to @post
   end

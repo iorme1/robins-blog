@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
@@ -24,10 +24,10 @@ class PostsController < ApplicationController
             UserMailer.post_notification(recipient, @post).deliver_later
           end
       end
-      flash[:notice] = "Blog post successfully created."
+      flash[:notice] = "Your blog post was successfully added."
       redirect_to @post
     else
-      flash[:alert] = "There was an error creating the blog post. Please try again."
+      flash[:alert] = "There was an error creating your blog post. Please try again."
       render :new
     end
   end
@@ -45,20 +45,20 @@ class PostsController < ApplicationController
           UserMailer.post_notification(recipient, @post).deliver_later
         end
       end
-      flash[:notice] = "Blog post has been updated."
+      flash[:notice] = "Your blog post has been successfully updated."
       redirect_to @post
     else
-      flash.now[:alert] = "There was an error updating the blog post. Please try again."
+      flash.now[:alert] = "There was an error updating your blog post. Please try again."
       render :edit
     end
   end
 
   def destroy
     if @post.destroy
-      flash[:notice] = "Blog post was deleted."
+      flash[:notice] = "Your blog post was removed."
       redirect_to root_path
     else
-      flash[:alert] = "Blog post could not be deleted. Please try again."
+      flash[:alert] = "Your blog post could not be removed. Please try again."
       redirect_to root_path
     end
   end

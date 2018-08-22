@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
         end
       end
 
-      flash[:notice] = "Comment saved successfully."
+      flash[:notice] = "Your comment has been added."
     else
       flash[:alert] = "Comment failed to save. Please try again."
     end
@@ -35,10 +35,10 @@ class CommentsController < ApplicationController
     @comment.assign_attributes(comment_params)
 
     if @comment.save
-      flash[:notice] = "Comment has been updated."
+      flash[:notice] = "Your comment has been updated."
       redirect_to @post
     else
-      flash.now[:alert] = "There was an error updating that comment. Please try again."
+      flash.now[:alert] = "Your comment failed to update. Please try again."
       render :edit
     end
   end
@@ -47,10 +47,10 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
 
     if @comment.destroy
-      flash[:notice] = "Comment was deleted."
+      flash[:notice] = "Your comment was removed."
       redirect_to @post
     else
-      flash[:alert] = "Comment couldn't be deleted. Please try again."
+      flash[:alert] = "Your comment could not be removed. Please try again."
       redirect_to @post
     end
   end
