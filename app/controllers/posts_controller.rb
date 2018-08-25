@@ -16,14 +16,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    @recipients = User.where(subscription: true).pluck(:email)
 
     if @post.save
-      if !@post.draft
-          @recipients.each do |recipient|
-            UserMailer.post_notification(recipient, @post).deliver_later
-          end
-      end
       flash[:notice] = "Your blog post was successfully added."
       redirect_to @post
     else
@@ -37,14 +31,8 @@ class PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
-    @recipients = User.where(subscription: true).pluck(:email)
 
     if @post.save
-      if !@post.draft?
-        @recipients.each do |recipient|
-          UserMailer.post_notification(recipient, @post).deliver_later
-        end
-      end
       flash[:notice] = "Your blog post has been successfully updated."
       redirect_to @post
     else
@@ -111,7 +99,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :cover, :draft)
+    params.require(:post).permit(:title, :body, :cover, :draft, :notify)
   end
 
   def set_post

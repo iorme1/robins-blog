@@ -11,9 +11,13 @@
     <%= f.label :cover %>
     <%= f.file_field :cover %>
   </div><br>
-  <div class="file-field">
+  <div class="form-field">
     <%= f.label "Save as Draft" %>
     <%= f.check_box :draft %>
+  </div><br>
+  <div class="form-field">
+    <%= f.label "Send notification emails?" %>
+    <%= f.check_box :notify %>
   </div><br>
   <div class="form-field">
     <%= f.submit "Save", class: "btn btn-info" %>
