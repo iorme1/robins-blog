@@ -13,13 +13,6 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      if Rails.env.production?
-        @recipients = User.where(role: "admin").pluck(:email)
-        @recipients.each do |recipient|
-          UserMailer.comment_notification(@post, @comment, recipient).deliver_later
-        end
-      end
-
       flash[:notice] = "Your comment has been added."
     else
       flash[:alert] = "Comment failed to save. Please try again."
@@ -63,8 +56,6 @@ class CommentsController < ApplicationController
 
     unless @like.size >= 1
       Like.create(likeable: @comment,  user: current_user, like: params[:like])
-      @recipient = User.where(subscription: true).where(id: @comment.user_id).pluck(:email)
-      UserMailer.like_comment_notification(@recipient, current_user.email.split('@')[0], @post, @comment).deliver_later
     end
   end
 

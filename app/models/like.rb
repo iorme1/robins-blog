@@ -9,9 +9,9 @@ class Like < ActiveRecord::Base
 		if self.likeable_type == "Post"
 			send_like_post_notification
 		elsif self.likeable_type == "Comment"
-			#send_like_comment_notification
+			send_like_comment_notification
 		elsif self.likeable_type = "Reply"
-			#send reply_like_notification 
+			#send reply_like_notification
 		end
 	end
 
@@ -30,6 +30,15 @@ class Like < ActiveRecord::Base
 		else
 			UserMailer.like_post_notification(user, post, "isorme1@gmail.com").deliver_later
 		end
+	end
+
+	def send_like_comment_notification
+		comment = self.likeable
+		user = self.user.email.split('@')[0]
+		post = comment.post
+	
+		recipient = User.where(subscription: true).where(id: comment.user_id).pluck(:email)
+		UserMailer.like_comment_notification(recipient, user, post, comment).deliver_later
 	end
 
 end
