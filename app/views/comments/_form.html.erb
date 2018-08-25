@@ -1,14 +1,22 @@
-<h3 class="font-italic comment-notes col-xs-12 col-md-8"> Leave a comment </h3>
+<div class="comment-form-container">
+  <div class="row">
+    <h3 class="font-italic comment-notes col-xs-12 col-md-8"> Leave a comment </h3>
+  </div>
 
-<%= form_for [post,comment], remote: true, :html => { :id => 'comment_form' } do |f| %>
+  <%= form_for [post,comment], remote: true, :html => { :id => 'comment_form' } do |f| %>
+    <%= f.invisible_captcha :subtitle %>
 
-  <%= f.invisible_captcha :subtitle %>
+   <div class="row">
+      <div class="form-field col-xs-12 col-md-8">
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+    </div><br>
 
-  <div class="form-field col-xs-12 col-md-8">
-    <%= f.text_area :body, class: 'form-control' %>
-  </div><br>
+    <div class="row">
+      <div class="form-field col-xs-12 col-md-8">
+        <%= f.submit "Add Comment", class: "btn btn-lg btn-info" %>
+      </div>
+    </div><br>
 
-  <div class="form-field col-xs-12 col-md-8">
-    <%= f.submit "Add Comment", class: "btn btn-lg btn-info" %>
-  </div><br>
-<% end %>
+  <% end %>
+</div>

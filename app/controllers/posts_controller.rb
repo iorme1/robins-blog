@@ -55,6 +55,7 @@ class PostsController < ApplicationController
     @drafts = Post.where(draft: true)
   end
 
+  #this needs to be moved to the users controller and refactored as well
   def subscribe
     if current_user.subscription?
       current_user.subscription = false
@@ -71,8 +72,8 @@ class PostsController < ApplicationController
         redirect_to root_path
       end
     else
-        flash[:warning] = "There was an error. Please try again."
-        redirect_to root_path
+      flash[:warning] = "There was an error. Please try again."
+      redirect_to root_path
     end
   end
 
