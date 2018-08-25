@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes, :as => :likeable
 
-  after_save :send_post_notification, :if => :notify_of_post?
+  after_commit :send_post_notification, on: [:create, :update], :if => :notify_of_post?
   mount_uploader :cover, BlogImageUploader
 
   def send_post_notification
@@ -15,7 +15,7 @@ class Post < ApplicationRecord
   end
 
   def notify_of_post?
-    self.notify
+    self.notify?
   end
 
 end
