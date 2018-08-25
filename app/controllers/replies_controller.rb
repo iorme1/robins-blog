@@ -17,10 +17,6 @@ class RepliesController < ApplicationController
     @reply.user = current_user
 
     if @reply.save
-      if @comment.user.subscription?
-        @recipient = @comment.user.email
-        UserMailer.reply_notification(@recipient, current_user.email, @reply, @post).deliver_later
-      end
       flash[:notice] = "Your reply has been added."
       redirect_to @post
     else
@@ -57,11 +53,7 @@ class RepliesController < ApplicationController
     @like = Like.where(likeable: @reply, user_id: current_user)
 
     unless @like.size >= 1
-      @recipient = User.where(subscription: true).where(id: @reply.user_id).pluck(:email)
       Like.create(likeable: @reply,  user: current_user, like: params[:like])
-      if @recipient
-        UserMailer.reply_like_notification(@recipient, current_user.email.split('@')[0], @reply, @post).deliver_later
-      end
     end
   end
 
