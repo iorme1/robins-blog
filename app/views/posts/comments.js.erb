@@ -1,7 +1,7 @@
-if ($(".comments<%=@post.id%>").text() === "View comments") {
+if ($(".comments<%=@post.id%>").text() === "View Comments") {
   $(".comments-display<%= @post.id %>").html("<%= j render "comments/comment" %>")
-  $(".comments<%=@post.id%>").html("Hide comments")
+  $(".comments<%=@post.id%>").html("Hide Comments")
 } else {
   $(".comments-display<%= @post.id %>").html("")
-  $(".comments<%=@post.id%>").html("View comments")
+  $(".comments<%=@post.id%>").html("View Comments")
 }
