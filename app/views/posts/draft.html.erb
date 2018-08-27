@@ -1,37 +1,40 @@
 <% if @drafts.empty? %>
   <p class="top-marg comment-notes">No Drafts Here Yet</p>
 <% else %>
+  <h1 class="title-font text-primary text-center"> Blog Drafts </h1><br>
   <% @drafts.each do |draft| %>
-    <div class="row">
-      <div class="col-md-8 preview-div">
-        <h3 class="title-font font-italic"><%= draft.title.upcase %></h3>
-        <p class="text-muted font-italic"><%= draft.created_at.strftime("%Y-%m-%d") + " By Robin Orme" %></p>
-        <div class="preview-blog-text">
-          <p><%= raw draft.body.truncate(200) %></p>
-        </div>
-        <% if current_user && current_user.admin? %>
-          <div class="read-post-btn-div">
-            <%= link_to post_path(draft), class: "btn btn-info" do %>
-              Preview Draft
+    <div class="blog-container">
+        <div class="row">
+          <div class="col-md-8 preview-div">
+            <h3 class="title-font font-italic"><%= draft.title.upcase %></h3>
+            <p class="text-muted font-italic"><%= draft.created_at.strftime("%Y-%m-%d") + " By Robin Orme" %></p>
+            <div class="preview-blog-text">
+              <p><%= raw draft.body.truncate(200) %></p>
+            </div>
+            <% if current_user && current_user.admin? %>
+              <div class="read-post-btn-div">
+                <%= link_to post_path(draft), class: "rfp-btn btn btn-info" do %>
+                  Preview Draft
+                <% end %>
+              </div><br>
             <% end %>
-          </div><br>
-        <% end %>
-      </div>
-      <% if draft.cover? %>
-        <div class="col-md-4">
-            <div class="image-div">
-                <%= image_tag(draft.cover.url, alt: "Cover Image for #{draft.title}", class: "cover-image") %>
-            </div><br>
+          </div>
+          <% if draft.cover? %>
+            <div class="col-md-4">
+                <div class="image-div">
+                    <%= image_tag(draft.cover.url, alt: "Cover Image for #{draft.title}", class: "cover-image") %>
+                </div><br>
+            </div>
+          <% end %>
+          <div class="col-md-12 text-center">
+            <% if current_user && current_user.admin? %>
+              <%= link_to "delete", post_path(draft), method: :delete, class: "rfp-btn btn btn-sm btn-info",
+              data: { confirm: "Are you sure you want to delete this draft?" } %>
+              <%= link_to "edit draft", edit_post_path(draft), class: "rfp-btn btn btn-sm btn-info" %>
+              <p></p><br/>
+            <% end %>
+          </div>
         </div>
-      <% end %>
-      <div class="col-md-12 text-center">
-        <% if current_user && current_user.admin? %>
-          <%= link_to "delete", post_path(draft), method: :delete, class: "btn btn-info btn-sm",
-          data: { confirm: "Are you sure you want to delete this draft?" } %>
-          <%= link_to "edit draft", edit_post_path(draft), class: "btn btn-sm btn-info" %>
-          <p></p><br/>
-        <% end %>
-      </div>
     </div>
   <% end %>
 <% end %>

@@ -1,6 +1,6 @@
 <% @post.comments.order("created_at DESC").each do |comment| %>
     <div class="comment-section comment-container jumbotron col-xs-12 col-md-12 col-lg-8">
-        <p class="text-info"><%= comment.user.email.split('@')[0] %>
+        <p class="text-primary font-italic"><%= comment.user.email.split('@')[0] %>
             <span class="text-muted">
               <%= "- " + time_ago_in_words(comment.created_at) + " ago" %>
             </span>
@@ -11,8 +11,8 @@
             <div class="col-md-4">
                 <% if comment.user === current_user || (current_user && current_user.admin?) %>
                     <%= link_to "delete", post_comment_path(@post,comment),
-                      method: :delete, class: "btn btn-sm btn-warning", data: { confirm: "Are you sure you want to delete this comment?"} %>
-                      <%= link_to "edit", edit_post_comment_path(@post,comment), class: "btn btn-sm btn-primary" %>
+                      method: :delete, class: "rfp-btn btn btn-sm btn-info", data: { confirm: "Are you sure you want to delete this comment?"} %>
+                      <%= link_to "edit", edit_post_comment_path(@post,comment), class: "rfp-btn btn btn-sm btn-info" %>
                 <% end %>
             </div>
             <% if current_user %>

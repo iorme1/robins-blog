@@ -11,16 +11,14 @@
             <% end %>
         </div><br>
       <% end %>
-      <h2 class="comment-notes"><%= link_to "View comments", comments_post_path(@post), class: "comments#{@post.id} show-comments like-text-post", remote: true %>
+      <h2 class="comment-notes"><%= link_to "View Comments", comments_post_path(@post), class: "comments#{@post.id} show-comments like-text-post", remote: true %>
         <span class="like-text-post"><%="(#{@post.comments.size})"%></span>
       </h2><br>
       <div class="comments-display<%=@post.id%>"></div>
       <% if current_user %>
         <%= render 'comments/form', comment: Comment.new, post: @post %>
       <% else %>
-        <div class="row">
-          <h3 class="comment-notes font-italic">You must be signed in to comment</h3><br>
-        </div>
+        <h3 class="font-italic comment-notes">You must be signed in to comment</h3><br>
       <% end %>
     </div>
   </div><br>

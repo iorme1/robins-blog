@@ -14,13 +14,13 @@
 
     <% if devise_mapping.rememberable? -%>
       <div class="field">
-        <%= f.label :remember_me, style: "font-size: 22px; color:red;" %>
+        <%= f.label :remember_me, class: "text-warning", style: "font-size: 22px;" %>
         <%= f.check_box :remember_me %>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "btn btn-success" %>
+      <%= f.submit "Log in", class: "rfp-btn btn btn-info" %>
     </div>
   <% end %>
 

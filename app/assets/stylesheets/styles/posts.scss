@@ -1,3 +1,7 @@
+.posts-wrapper {
+  background-color: #7FDBFF;
+}
+
 .blog-container {
   width: 75%;
   margin: 0 auto;
@@ -6,7 +10,7 @@
 .blog-container::after {
   content: "";
   border: 1px solid black;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 30px;
   display: block;
@@ -58,7 +62,7 @@
 .title-font {
   font-family: "Georgia";
   font-size: 30px;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   font-weight: bold;
   text-shadow: 0.8px 1.6px 2.1px grey;
 }
@@ -126,4 +130,26 @@
 
 .current-users-txt:hover {
   color: white;
+}
+
+.rfp-btn {
+  background: #0074D9;
+  background: -webkit-linear-gradient(#0074D9,#7FDBFF);
+  background: -o-linear-gradient(#0074D9,#7FDBFF);
+  background: -ms-linear-gradient(#0074D9,#7FDBFF);
+  background: linear-gradient(#0074D9,#7FDBFF);
+}
+
+.edit-post-container > h1 {
+  text-align: center;
+}
+
+@media all and (max-width: 535px ) {
+  .title-font {
+    font-family: "Georgia";
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 0.4px .8px 1px grey;
+  }
 }

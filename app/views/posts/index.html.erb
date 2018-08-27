@@ -6,13 +6,13 @@
           <% end %>
             <h1 class="font-italic title-font banner-title-text">Robin And Gloria's Blog Posts</h1>
             <% if current_user && current_user.subscription? %>
-               <%= link_to "Unsubscribe", subscribe_posts_path, class: "btn btn-lg btn-warning" %>
+               <%= link_to "Unsubscribe", subscribe_posts_path, class: "rfp-btn btn btn-lg btn-info" %>
             <% elsif current_user %>
                <p class="guest-text text-info"> Click subscribe for email notifications of new posts</p>
-               <%= link_to "Subscribe", subscribe_posts_path, class: "btn btn-lg btn-warning" %>
+               <%= link_to "Subscribe", subscribe_posts_path, class: "rfp-btn btn btn-lg btn-info" %>
             <% else %>
                 <p class="guest-text text-info">Sign up or log in to an existing account to enjoy full access</p>
-                <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-lg btn-warning" %>
+                <%= link_to "Sign up",  new_user_registration_path, class: "rfp-btn btn btn-lg btn-info" %>
             <% end %>
         </div>
     </div>
@@ -21,7 +21,7 @@
 <% if current_user && current_user.admin? %>
     <div class="row">
         <div class="col-md-12 text-center">
-            <%= link_to "Create New Post", new_post_path, class: "btn btn-success btn-lg" %>
+            <%= link_to "Create New Post", new_post_path, class: "rfp-btn btn btn-lg btn-info" %>
         </div>
     </div><br>
 <% end %>
