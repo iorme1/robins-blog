@@ -1,7 +1,3 @@
-.posts-wrapper {
-  background-color: #7FDBFF;
-}
-
 .blog-container {
   width: 75%;
   margin: 0 auto;
@@ -144,6 +140,35 @@
   text-align: center;
 }
 
+.post-show-title-image-banner {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.post-show-title-banner {
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  top: 100px;
+  font-family: "Georgia";
+  color: white;
+  letter-spacing: 2px;
+  text-shadow: 1.6px 3.2px 4.2px black;
+  font-size: 50px;
+  z-index: 1;
+  padding: 10px;
+}
+
+.post-show-title-image-banner > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  padding: 0px;
+  opacity: .8;
+}
+
 @media all and (max-width: 535px ) {
   .title-font {
     font-family: "Georgia";
@@ -151,5 +176,19 @@
     letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 0.4px .8px 1px grey;
+  }
+
+  .post-show-title-banner {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    top: 100px;
+    font-family: "Georgia";
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 1.6px 3.2px 4.2px black;
+    font-size: 40px;
+    z-index: 1;
+    padding: 10px;
   }
 }
