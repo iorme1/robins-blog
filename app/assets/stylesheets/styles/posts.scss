@@ -21,6 +21,7 @@
   -moz-box-shadow: 1px 1px 2px 3px black;
   -webkit-box-shadow: 1px 1px 2px 3px black;
   box-shadow: 1px 1px 2px 3px black;
+  border-radius: 15px;
 }
 
 .cover-image {
@@ -28,6 +29,12 @@
   width: 100%;
   object-fit: cover;
   padding: 0px;
+}
+
+.cover-image-show {
+  border: 1px solid black;
+  border-radius: 20px;
+
 }
 
 .comment-notes {
@@ -57,10 +64,10 @@
 
 .title-font {
   font-family: "Georgia";
-  font-size: 30px;
-  letter-spacing: 3px;
+  font-size: 27px;
+  letter-spacing: 2px;
   font-weight: bold;
-  text-shadow: 0.8px 1.6px 2.1px grey;
+  text-shadow: 0.6px 1.2px 1.6px grey;
 }
 
 .like-text-comment {
@@ -111,8 +118,11 @@
 }
 
 .blog-banner {
-  background-image: linear-gradient(#001f3f,#0074D9,#7FDBFF);
+  background-image: url('footer_lodyas.png');
   color: white;
+  width: 75%;
+  border-radius: 60px;
+  margin: 0 auto;
 }
 
 .guest-text {
@@ -139,34 +149,12 @@
 .edit-post-container > h1 {
   text-align: center;
 }
-
 .post-show-title-image-banner {
-  position: relative;
-  height: 400px;
-  width: 100%;
-  border: 2px solid black;
+  margin: 0 auto;
 }
-
-.post-show-title-banner {
-  position: absolute;
-  height: 100px;
-  width: 100%;
-  top: 100px;
-  font-family: "Georgia";
-  color: white;
-  letter-spacing: 2px;
-  text-shadow: 1.6px 3.2px 4.2px black;
-  font-size: 50px;
-  z-index: 1;
-  padding: 10px;
-}
-
 .post-show-title-image-banner > img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  padding: 0px;
-  opacity: .8;
+  width: 600px;
+  height: auto;
 }
 
 @media all and (max-width: 535px ) {
@@ -176,19 +164,5 @@
     letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 0.4px .8px 1px grey;
-  }
-
-  .post-show-title-banner {
-    position: absolute;
-    height: 100px;
-    width: 100%;
-    top: 100px;
-    font-family: "Georgia";
-    color: white;
-    letter-spacing: 1px;
-    text-shadow: 1.6px 3.2px 4.2px black;
-    font-size: 40px;
-    z-index: 1;
-    padding: 10px;
   }
 }

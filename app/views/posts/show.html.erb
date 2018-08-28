@@ -1,7 +1,7 @@
 <main class="container">
   <div class="row">
     <div class="text-center post-show-title-image-banner">
-       <h1 class="font-italic post-show-title-banner"><%= @post.title %></h1>
+      <h1 class="font-italic title-font text-center"><%= @post.title %></h1><br>
        <%= image_tag("#{@post.cover}", alt: "Cover Image for #{@post.title}", class: "cover-image-show") %>
      </div>
   </div><br>
