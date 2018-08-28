@@ -1,7 +1,11 @@
 <main class="container">
+  <div class="row post-show-title text-center">
+    <div class="col-md-12">
+      <h1 class="font-italic title-font text-center"><%= @post.title %></h1>
+    </div>
+  </div><br>
   <div class="row">
     <div class="text-center post-show-title-image-banner">
-      <h1 class="font-italic title-font text-center"><%= @post.title %></h1><br>
        <%= image_tag("#{@post.cover}", alt: "Cover Image for #{@post.title}", class: "cover-image-show") %>
      </div>
   </div><br>
@@ -16,15 +20,13 @@
             <% end %>
         </div><br>
       <% end %>
-      <h2 class="comment-notes"><%= link_to "View Comments", comments_post_path(@post), class: "comments#{@post.id} show-comments like-text-post", remote: true %>
-        <span class="like-text-post"><%="(#{@post.comments.size})"%></span>
-      </h2><br>
-      <div class="comments-display<%=@post.id%>"></div>
       <% if current_user %>
         <%= render 'comments/form', comment: Comment.new, post: @post %>
       <% else %>
         <h3 class="font-italic comment-notes">You must be signed in to comment</h3><br>
       <% end %>
+      <h3 class="comment-header font-italic">Comments</h3><br>
+        <%= render 'comments/comment' %>
     </div>
   </div><br>
 </main>

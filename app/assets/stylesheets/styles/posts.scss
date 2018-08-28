@@ -59,7 +59,12 @@
 }
 
 .comment-section {
-  padding: 20px;
+  padding: 15px;
+  font-family: "Georgia";
+  font-size: 17px;
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 10px;
 }
 
 .title-font {
@@ -76,6 +81,12 @@
    font-family: "Georgia";
    color: blue;
    font-weight: bold;
+}
+
+.comment-header {
+  font-family: "Georgia";
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .reply-to-comment {
@@ -120,8 +131,8 @@
 .blog-banner {
   background: image-url('footer_lodyas.png');
   color: white;
-  width: 75%;
-  border-radius: 60px;
+  width: 60%;
+  border-radius: 50px;
   margin: 0 auto;
 }
 
@@ -151,10 +162,20 @@
 }
 .post-show-title-image-banner {
   margin: 0 auto;
+  width: 600px;
+  height: 400px;
 }
 .post-show-title-image-banner > img {
-  width: 600px;
-  height: auto;
+  /*width: 600px;
+  height: auto; */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  padding: 0px;
+}
+
+.post-show-title {
+  margin: 0 auto;
 }
 
 @media all and (max-width: 535px ) {
@@ -164,5 +185,28 @@
     letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 0.4px .8px 1px grey;
+  }
+}
+
+@media all and (max-width: 765px) {
+  .reply-container {
+    text-align: right !important;
+  }
+
+  .comment-section {
+    margin-bottom: 15px;
+  }
+
+  .border-reply {
+    border-bottom: none;
+  }
+
+  .blog-banner {
+    border-radius: 30px;
+    width: 75%;
+  }
+
+  .ud-reply {
+    text-align: right;
   }
 }
