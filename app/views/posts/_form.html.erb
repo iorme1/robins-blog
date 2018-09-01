@@ -9,6 +9,7 @@
       </ul>
     </div>
   <% end %>
+
   <%= form_group_tag(@post.errors[:title]) do %>
     <%= f.label :title, class: "comment-notes" %>
     <%= f.text_field :title, class: "form-control" %>
