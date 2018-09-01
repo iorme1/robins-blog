@@ -1,24 +1,39 @@
 <%= form_for @post do |f| %>
-  <div class="form-field">
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@post.errors.count, "error") %></h4>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form_group_tag(@post.errors[:title]) do %>
     <%= f.label :title, class: "comment-notes" %>
-    <%= f.text_field :title, class: "form-control"  %>
-  </div><br>
-  <div class="form-field">
+    <%= f.text_field :title, class: "form-control" %>
+  <% end %>
+
+  <%= form_group_tag(@post.errors[:body]) do %>
     <%= f.label :body, class: "comment-notes" %>
-    <%= f.cktext_area :body, class: "form-control"  %>
-  </div><br>
-  <div class="file-field">
+    <%= f.cktext_area :body, class: "form-control" %>
+  <% end %>
+
+  <%= form_group_tag(@post.errors[:cover]) do %>
     <%= f.label "Cover Photo" , class: "comment-notes" %>
     <%= f.file_field :cover %>
-  </div><br>
+  <% end %>
+
   <div class="form-field">
     <%= f.label "Save as Draft?", class: "comment-notes" %>
     <%= f.check_box :draft %>
   </div><br>
+
   <div class="form-field">
     <%= f.label "Send notification emails?", class: "comment-notes" %>
     <%= f.check_box :notify %>
   </div><br>
+
   <div class="form-field">
     <%= f.submit "Save", class: "rfp-btn btn btn-info" %>
   </div><br>

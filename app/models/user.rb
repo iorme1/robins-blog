@@ -15,7 +15,11 @@ class User < ApplicationRecord
   enum role: [:member, :admin]
 
   def subscribe_to_blog
-    self.subscription = true
+    if Rails.env.production?
+      self.subscription = true
+    else
+      return
+    end 
   end
 
 end

@@ -6,6 +6,8 @@ class Comment < ApplicationRecord
 
   after_create :send_comment_notification
 
+  validates :body, presence: true  
+
   def send_comment_notification
     post = self.post
     comment = self

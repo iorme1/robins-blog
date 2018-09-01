@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Your comment has been added."
     else
       flash[:alert] = "Comment failed to save. Please try again."
+      redirect_to @post
     end
   end
 

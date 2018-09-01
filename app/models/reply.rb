@@ -3,6 +3,7 @@ class Reply < ApplicationRecord
   belongs_to :comment
   has_many :likes, :as => :likeable
 
+  validates :body, presence: true  
   #after_create was only working part of time here for some reason...so changed to using after_commit with create option
   after_commit :send_notification, on: [:create]
 
