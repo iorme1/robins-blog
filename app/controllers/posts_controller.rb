@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :destroy, :edit, :update, :like, :replies]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :replies]
   before_action :authorize_user, except: [:index, :show, :subscribe, :like]
 
   def index

@@ -10,7 +10,7 @@
         <div class="row">
             <% if current_user %>
                 <div class="col-md-3 like-container">
-                    <%= link_to like_post_comment_path(@post,comment, like: true), method: 'post', remote: true do %>
+                    <%= link_to like_comment_path(comment, like: true), method: 'post', remote: true do %>
                         <span class="like-text-comment">Like</span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                         <span id="comment_<%= comment.id %>_likes"><%= comment.likes.size %></span>
                     <% end %>
@@ -18,10 +18,10 @@
             <% end %>
             <div class="col-md-5 reply-container">
               <% if current_user %>
-                 <span class="reply-to-comment"> <%= link_to "Reply", new_post_comment_reply_path(@post, comment) %> </span>
+                 <span class="reply-to-comment"> <%= link_to "Reply", new_comment_reply_path(comment) %> </span>
                  <span> | </span>
               <% end %>
-               <span class="like-text-comment"><%= link_to "View replies", replies_post_comment_path(@post,comment), class: "replies#{comment.id} show-replies", remote: true %></span>
+               <span class="like-text-comment"><%= link_to "View replies", replies_comment_path(comment), class: "replies#{comment.id} show-replies", remote: true %></span>
                <span class="like-text-comment"><%= "#{comment.replies.count}"%></span>
             </div>
             <div class="col-md-4">

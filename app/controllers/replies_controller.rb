@@ -1,9 +1,8 @@
 class RepliesController < ApplicationController
   invisible_captcha only: [:create, :update], honeypot: :subtitle, on_spam: :spam_detected
   before_action :authorize_user
-  before_action :set_post, only: [:new, :create, :destroy, :like, :edit, :update, :like]
-  before_action :set_comment, only: [:new, :show, :create, :edit, :update]
-  before_action :set_reply, only: [:destroy, :edit, :update, :like]
+  before_action :set_comment, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_reply, only: [:edit, :update, :destroy, :like]
 
   def show
   end
@@ -18,10 +17,10 @@ class RepliesController < ApplicationController
 
     if @reply.save
       flash[:notice] = "Your reply has been added."
-      redirect_to @post
+      redirect_to @comment.post
     else
       flash[:alert] = "Your reply failed to save. Please try again."
-      redirect_to @post
+      redirect_to @comment.post
     end
   end
 
@@ -33,10 +32,10 @@ class RepliesController < ApplicationController
 
     if @reply.save
       flash[:notice] = "Your reply has been updated."
-      redirect_to @post
+      redirect_to @comment.post
     else
       flash.now[:alert] = "There was an error updating your reply. Please try again."
-      render :edit
+      redirect_to @comment.post
     end
   end
 
@@ -46,7 +45,7 @@ class RepliesController < ApplicationController
     else
       flash[:alert] = "Your reply was not removed. Please try again."
     end
-    redirect_to @post
+    redirect_to @comment.post
   end
 
   def like
@@ -65,10 +64,6 @@ class RepliesController < ApplicationController
 
   def set_reply
     @reply = Reply.find(params[:id])
-  end
-
-  def set_post
-    @post = Post.find(params[:post_id])
   end
 
   def set_comment

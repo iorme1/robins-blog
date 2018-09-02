@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   invisible_captcha only: [:create, :update], honeypot: :subtitle, on_spam: :spam_detected
-  before_action :authorize_user, except: [:index, :like, :show, :replies]
-  before_action :set_post, only: [:create, :destroy, :like, :replies]
-  before_action :set_comment, only: [:edit, :update, :like, :show, :replies]
+  before_action :authorize_user, except: [:index, :show, :like, :replies]
+  before_action :set_post, only: [:create, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :like, :replies]
 
   def show
   end
@@ -20,11 +20,9 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @post = @comment.post
   end
 
   def update
-    @post = @comment.post
     @comment.assign_attributes(comment_params)
 
     if @comment.save

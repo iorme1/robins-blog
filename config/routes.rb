@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
+  root 'posts#index'
+
   resources :posts do
     collection do
        get :draft
@@ -11,30 +13,23 @@ Rails.application.routes.draw do
        post 'like'
      end
 
-     resources :comments, only: [:create, :destroy, :edit, :update] do
-       member do
-         post 'like'
-         get 'replies'
-       end
-     end
-
-     resources :comments, only: [:show] do
-       resources :replies, only: [:new, :create, :edit, :update] do
-         member do
-           post 'like'
-         end
-       end
-     end
-
-     resources :replies, only: [:destroy]
+     resources :comments, only: [:create, :edit, :update, :destroy]
    end
 
-
-
   devise_for :users
-
   resources :users, only: [:index]
 
-  root 'posts#index'
+  resources :comments, only: [:show] do
+    member do
+      post 'like'
+      get 'replies'
+    end
+
+    resources :replies do
+      member do
+        post 'like'
+      end
+    end
+  end
 
 end
