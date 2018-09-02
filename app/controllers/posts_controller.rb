@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :destroy, :edit, :update, :like, :replies, :comments]
-  before_action :authorize_user, except: [:index, :show, :subscribe, :like, :comments]
+  before_action :set_post, only: [:show, :destroy, :edit, :update, :like, :replies]
+  before_action :authorize_user, except: [:index, :show, :subscribe, :like]
 
   def index
     @posts = Post.published
@@ -74,9 +74,6 @@ class PostsController < ApplicationController
       flash[:warning] = "There was an error. Please try again."
       redirect_to root_path
     end
-  end
-
-  def comments
   end
 
   def like
