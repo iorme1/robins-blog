@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :replies, dependent: :destroy
+
+  default_scope { order('created_at DESC') }
 
   after_create :subscribe_to_blog
   before_save  { self.role ||= :member }
@@ -19,7 +20,7 @@ class User < ApplicationRecord
       self.subscription = true
     else
       return
-    end 
+    end
   end
 
 end

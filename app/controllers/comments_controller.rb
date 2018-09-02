@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :like, :show, :replies]
 
   def show
-
   end
 
   def create

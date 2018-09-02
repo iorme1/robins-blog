@@ -3,11 +3,10 @@ class PostsController < ApplicationController
   before_action :authorize_user, except: [:index, :show, :subscribe, :like, :comments]
 
   def index
-    @posts = Post.where(draft: [nil, false]).order("created_at DESC")
+    @posts = Post.published
   end
 
   def show
-
   end
 
   def new
@@ -52,7 +51,7 @@ class PostsController < ApplicationController
   end
 
   def draft
-    @drafts = Post.where(draft: true)
+    @drafts = Post.draft
   end
 
   #this needs to be moved to the users controller and refactored as well

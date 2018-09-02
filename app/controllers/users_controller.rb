@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authorize_user
 
   def index
-    @users = User.order(created_at: :desc)
+    @users = User.all
   end
 
   private

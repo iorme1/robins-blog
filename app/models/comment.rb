@@ -6,7 +6,9 @@ class Comment < ApplicationRecord
 
   after_create :send_comment_notification
 
-  validates :body, presence: true  
+  default_scope { order('created_at DESC') }
+
+  validates :body, presence: true
 
   def send_comment_notification
     post = self.post
