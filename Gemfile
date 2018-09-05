@@ -12,11 +12,13 @@ group :development do
 end
 
 group :development, :test do
+  gem "factory_bot_rails"
+  gem 'faker', '~> 1.9', '>= 1.9.1'
   gem 'rspec-rails', '~> 3.8'
+  gem 'rails-controller-testing'
 end
 
 gem 'invisible_captcha', '~> 0.10.0'
-gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'font-awesome-rails'
 gem 'fog-aws'
 gem 'figaro'
