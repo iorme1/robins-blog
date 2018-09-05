@@ -11,6 +11,10 @@ group :development do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+end
+
 gem 'invisible_captcha', '~> 0.10.0'
 gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'font-awesome-rails'
