@@ -16,6 +16,14 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
     "uploads/ckeditor/pictures/#{model.id}"
   end
 
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.tap(&:auto_orient)
+    end
+  end
+
+  process :fix_exif_rotation
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
@@ -27,6 +35,7 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+
 
   process :extract_dimensions
 
