@@ -10,8 +10,10 @@
      </div>
   </div><br>
   <div class="row">
-    <div class="post-show-blog">
-      <p><%= raw @post.body %></p>
+    <div>
+      <div class="post-show-blog">
+        <p><%= raw @post.body %></p>
+      </div><br>
       <% if current_user %>
         <div class="like-post-container">
             <%= link_to like_post_path(@post, like: true), method: 'post', remote: true do %>

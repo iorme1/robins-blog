@@ -3,15 +3,6 @@
   margin: 0 auto;
 }
 
-.blog-container::after {
-  content: "";
-  border: 1px solid black;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  display: block;
-}
-
 .image-div {
   height: 225px;
   width: 100%;
@@ -32,14 +23,13 @@
 }
 
 .cover-image-show {
-  border: 1px solid black;
   border-radius: 20px;
+  border: 1px solid black;
 
 }
 
 .comment-notes {
    font-family: "Georgia";
-   color: black;
    font-weight: bold;
    text-shadow: 0.6px 1.1px 1.6px grey;
    letter-spacing: 2px;
@@ -69,10 +59,10 @@
 
 .title-font {
   font-family: "Georgia";
-  font-size: 27px;
+  font-size: 30px;
   letter-spacing: 2px;
   font-weight: bold;
-  text-shadow: 0.6px 1.2px 1.6px grey;
+  text-shadow: 0.8px 1.5px 1.9px grey;
 }
 
 .like-text-comment {
@@ -87,6 +77,7 @@
   font-family: "Georgia";
   font-weight: bold;
   letter-spacing: 2px;
+  text-shadow: 0.6px 1.1px 1.6px grey;
 }
 
 .reply-to-comment {
@@ -112,6 +103,8 @@
 
 .like-post-container {
   font-size: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .like-post-container:hover {
@@ -134,6 +127,7 @@
   width: 60%;
   border-radius: 50px;
   margin: 0 auto;
+  opacity: 0.8;
 }
 
 .guest-text {
@@ -177,6 +171,21 @@
   margin: 0 auto;
 }
 
+.blog-container {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+  background: white;
+  opacity: 0.8;
+}
+
+.post-show-blog {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+}
+
 @media all and (max-width: 535px ) {
   .title-font {
     font-family: "Georgia";
@@ -184,6 +193,10 @@
     letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 0.4px .8px 1px grey;
+  }
+
+  .blog-container {
+    width: 100%;
   }
 }
 
