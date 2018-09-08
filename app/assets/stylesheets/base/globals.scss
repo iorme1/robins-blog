@@ -95,20 +95,27 @@ body {
 }
 
 @media all and (max-width: 1029px ) {
+
   .background-img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: image-url('bg-img.jpg');
-    background-repeat: no-repeat;
-    background-attachment: scroll !important;
-    background-size: cover;
-    opacity: 0.8;
-    filter:alpha(opacity=80);
-    z-index: -1;
+    display: none;
+  }
+
+  body.posts.index:before {
+     content: "";
+     display: block;
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     z-index: -10;
+     background: image-url('bg-img.jpg') no-repeat center center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     opacity: 0.8;
+     filter:alpha(opacity=80);
   }
 
 }
