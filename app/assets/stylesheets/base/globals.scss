@@ -91,3 +91,11 @@ body {
 .navbar-brand:hover {
   color: #FFDC00 !important;
 }
+
+@media all and (max-width: 535px ) {
+  .background-img {
+    background-size: 100%;
+    background-size: auto 1000px;
+    background-position: top center;
+  }
+}
