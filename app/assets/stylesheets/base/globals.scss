@@ -13,6 +13,10 @@ body {
   background: image-url('brickwall.png')
  }
 
+ body.posts.index {
+   background: none;
+ }
+
 .background-img {
   position: fixed;
   top: 0;
@@ -27,7 +31,7 @@ body {
   opacity: 0.8;
   filter:alpha(opacity=80);
   z-index: -1;
-}
+} 
 
 .devise-forms {
   text-align: center;
@@ -95,7 +99,7 @@ body {
 @media all and (max-width: 535px ) {
   .background-img {
     background-size: 100%;
-    background-size: auto auto;
+    background-size: auto 1000px;
     background-position: top center;
   }
 }
