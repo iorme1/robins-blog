@@ -8,9 +8,10 @@ class Post < ApplicationRecord
 
   validates :title, length: { minimum: 4 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
-  #validates :cover, presence: true
 
   after_commit :send_post_notification, on: [:create, :update], :if => :notify_of_post?
+
+  paginates_per 5
 
   mount_uploader :cover, BlogImageUploader
 

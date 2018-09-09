@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authorize_user, except: [:index, :show, :subscribe, :like]
 
   def index
-    @posts = Post.published
+    @posts = Post.published.page params[:page]
   end
 
   def show

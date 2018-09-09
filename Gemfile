@@ -18,6 +18,8 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
+
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'invisible_captcha', '~> 0.10.0'
 gem 'font-awesome-rails'
 gem 'fog-aws'
