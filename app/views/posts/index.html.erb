@@ -5,7 +5,7 @@
           <% if current_user && current_user.admin? %>
             <p class="comment-notes"><%= link_to "Current Users", users_path, class: "current-users-txt" %></p>
           <% end %>
-            <h1 class="font-italic title-font banner-title-text">Robin And Gloria's Blog Posts</h1>
+            <h1 class="font-italic title-font banner-title-text">Robin And Gloria's Travel Blog</h1>
             <% if current_user && current_user.subscription? %>
                <%= link_to "Unsubscribe", subscribe_posts_path, class: "rfp-btn btn btn-lg btn-info" %>
             <% elsif current_user %>
