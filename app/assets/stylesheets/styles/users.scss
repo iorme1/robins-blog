@@ -39,12 +39,11 @@
 
 
 @media all and (max-width: 535px ) {
-    .users-list {
-      font-size: 15px;
-      color: pink;
-    }
+  .user-list-table {
+    font-size: 12px;
+  }
 
     .table-container > table {
-      width: 300px;
+      width: 250px;
     }
-}
+  }
