@@ -30,6 +30,29 @@
   color: red;
 }
 
+.visit-black {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.visit-green {
+  font-size: 18px !important;
+  font-weight: bold;
+  color: #00e64d !important;
+}
+
+.visit-blue {
+  font-size: 18px !important;
+  font-weight: bold;
+  color: blue !important;
+}
+
+.visit-red {
+  font-size: 18px !important;
+  font-weight: bold;
+  color: red !important;
+}
+
 @media all and (max-width: 768px ) {
 
   .table-container > table {
@@ -43,7 +66,7 @@
     font-size: 12px;
   }
 
-    .table-container > table {
-      width: 250px;
-    }
+  .table-container > table {
+    width: 250px;
   }
+}

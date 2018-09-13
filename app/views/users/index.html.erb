@@ -12,7 +12,16 @@
                 <% else %>
                     <td class="unsubbed-text">Not Subscribed</td>
                 <% end %>
-                <td><%= user.visits.count %></td>
+
+                <% if user.visits.count == 0 %>
+                  <td class="visit-black"><%= user.visits.count %></td>
+                <% elsif user.visits.count >= 0 && user.visits.count <= 5 %>
+                  <td class="visit-green"><%= user.visits.count %></td>
+                <% elsif user.visits.count >= 10 && user.visits.count < 20 %>
+                  <td class="visit-blue"><%= user.visits.count %></td>
+                <% elsif user.visits.count >= 20 %>
+                  <td class="visit-red"><%= user.visits.count %></td>
+                <% end %>
             </tr>
         <% end %>
     </table>
