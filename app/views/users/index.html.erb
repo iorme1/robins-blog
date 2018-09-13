@@ -3,6 +3,7 @@
     <table class="user-list-table">
         <th>Emails</th>
         <th>Subscription</th>
+        <th>Home Page Visits</th>
         <% @users.each do |user| %>
             <tr>
                 <td><%= user.email.truncate(20) %></td>
@@ -11,6 +12,7 @@
                 <% else %>
                     <td class="unsubbed-text">Not Subscribed</td>
                 <% end %>
+                <td><%= user.visits.count %></td>
             </tr>
         <% end %>
     </table>

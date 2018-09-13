@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :authorize_user, except: [:index, :show, :subscribe, :like]
 
   def index
+    ahoy.track "Viewed Home Page"
     @posts = Post.published.page params[:page]
   end
 

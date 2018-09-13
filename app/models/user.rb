@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :replies, dependent: :destroy
+  has_many :visits, class_name: "Ahoy::Visit"
 
   default_scope { order('created_at DESC') }
 

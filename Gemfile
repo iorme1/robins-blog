@@ -19,6 +19,7 @@ group :development, :test do
 end
 
 
+gem 'ahoy_matey'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'invisible_captcha', '~> 0.10.0'
 gem 'font-awesome-rails'
