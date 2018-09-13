@@ -19,6 +19,8 @@ group :development, :test do
 end
 
 
+gem 'chartkick'
+gem 'groupdate'
 gem 'ahoy_matey'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'invisible_captcha', '~> 0.10.0'

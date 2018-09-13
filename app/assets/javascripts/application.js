@@ -12,6 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require Chart.bundle
+//= require chartkick
 //= require jquery3
 //= require ahoy
 //= require popper

@@ -70,6 +70,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (3.0.1)
     ckeditor (4.2.4)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -129,6 +130,8 @@ GEM
     geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.0.1)
+      activesupport (>= 4.2)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     invisible_captcha (0.10.0)
@@ -285,6 +288,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.1)
   carrierwave
+  chartkick
   ckeditor
   coffee-rails (~> 4.2)
   devise
@@ -293,6 +297,7 @@ DEPENDENCIES
   figaro
   fog-aws
   font-awesome-rails
+  groupdate
   invisible_captcha (~> 0.10.0)
   jbuilder (~> 2.5)
   jquery-rails
