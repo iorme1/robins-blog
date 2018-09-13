@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :replies]
   before_action :authorize_user, except: [:index, :show, :subscribe, :like]
+  before_action :authorize_like, only: [:like]
 
   def index
     ahoy.track "Viewed Home Page"
@@ -78,6 +79,7 @@ class PostsController < ApplicationController
   end
 
   def like
+
     @like = Like.where(likeable: @post, user_id: current_user)
 
     unless @like.size >= 1
@@ -100,6 +102,13 @@ class PostsController < ApplicationController
     unless current_user && current_user.admin?
       flash[:alert] = "You must be an admin to do that."
       redirect_to root_path
+    end
+  end
+
+  def authorize_like
+    unless current_user
+      flash[:alert] = "You must be signed in to like a post. Don't forget to check the Remember Me box to avoid having to sign in every time!"
+      redirect_to new_user_session_path
     end
   end
 end
