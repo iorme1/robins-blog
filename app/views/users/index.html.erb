@@ -1,6 +1,6 @@
 <div class="table-container">
     <h1 class="comment-notes">Current Users: <%= User.count %></h1><br>
-    <h2 class="ahoy-visits"><%=line_chart Ahoy::Visit.group_by_day(:started_at).count %></h2>
+    <h2 class="ahoy-visits"><%= column_chart Ahoy::Visit.group_by_day(:started_at).count %></h2>
     <table class="user-list-table">
         <th>Emails</th>
         <th>Subscription</th>
