@@ -21,7 +21,7 @@
                 <span id="post_<%= @post.id %>_likes"><%= @post.likes.size %></span>
             <% end %>
         </div><br>
-  
+
       <% if current_user %>
         <%= render 'comments/form', comment: Comment.new, post: @post %>
       <% else %>

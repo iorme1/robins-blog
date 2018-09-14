@@ -19,6 +19,20 @@
     </div>
 </div><br><br>
 
+<% unless current_user %>
+  <div class="speech-bubble-container">
+    <div class="speech-bubble">
+        <p><%= "Thanks for stopping by, but you aren't signed in! Remember to sign-in and check the 'Remember Me' box so you
+        are signed in automatically next time!" %></p>
+        <%= link_to "Sign in here", new_user_session_path %>
+    </div>
+    <div class="greeting-bot">
+      <%= image_tag('greeting-bot.png', alt: "Greeting Bot", class: "greeting-bot-img") %>
+    </div>
+  </div>
+<% end %>
+
+
 <% if current_user && current_user.admin? %>
     <div class="row">
         <div class="col-md-12 text-center">

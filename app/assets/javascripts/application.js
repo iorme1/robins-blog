@@ -21,3 +21,11 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .
+
+$(document).ready(function () {
+  if (document.getElementsByClassName('speech-bubble-container')[0]) {
+    setTimeout(function() {
+        $('.speech-bubble-container').css("right", "3%")
+    }, 500);
+  }
+});
