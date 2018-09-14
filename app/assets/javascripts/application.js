@@ -25,7 +25,11 @@
 $(document).ready(function () {
   if (document.getElementsByClassName('speech-bubble-container')[0]) {
     setTimeout(function() {
-        $('.speech-bubble-container').css("right", "3%")
+        $('.speech-bubble-container').css("-ms-transform", "translateX(-150%)")
+        $('.speech-bubble-container').css("-webkit-transform", "translateX(-150%)")
+        $('.speech-bubble-container').css("-moz-transform", "translateX(-150%)")
+        $('.speech-bubble-container').css("-o-transform", "translateX(-150%)")
+        $('.speech-bubble-container').css("transform", "translateX(-150%)")
     }, 500);
   }
 });
