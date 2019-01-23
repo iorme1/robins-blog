@@ -4,6 +4,9 @@ Blogging application for my parent's travel's to Europe. Users can sign up, comm
 ## Tech Details
 Built with Ruby on Rails. Implements Ckeditor for blog creation. Uses carrier wave, mini_magick, AWS, and more.
 
+## Live App
+https://robins-blogs.herokuapp.com/
+
 ## Screenshots
 
 ### Home Page
